@@ -26,6 +26,11 @@ pipeline{
                 }
             }
         }
+        stage('Quality Gate'){
+            steps{
+                waitForQualityGate abortPipeline: true
+            }
+        }
         stage('teste da aplicaçao'){
             steps{
                 sh 'chmod +x teste-app.sh'
